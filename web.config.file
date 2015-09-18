@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <configSections>
+        <sectionGroup name="system.webServer">
+            <sectionGroup name="rewrite">
+                <section name="rewriteMaps" overrideModeDefault="Allow" />
+                <section name="rules" overrideModeDefault="Allow" />
+            </sectionGroup>
+        </sectionGroup>
+    </configSections>
+
+    <system.webServer>
+        <directoryBrowse enabled="false" />
+        <defaultDocument>
+            <files>
+                <clear />
+                <add value="index.php" />
+                <add value="index.asp" />
+            </files>
+        </defaultDocument>
+        <httpErrors errorMode="Custom">
+            <remove statusCode="500" subStatusCode="-1" />
+            <remove statusCode="404" subStatusCode="-1" />
+            <error statusCode="500" subStatusCode="100" prefixLanguageFilePath="" path="/500page.php" responseMode="ExecuteURL" />
+            <error statusCode="404" subStatusCode="-1" prefixLanguageFilePath="" path="/error404.php" responseMode="ExecuteURL" />
+            <error statusCode="500" subStatusCode="-1" prefixLanguageFilePath="" path="/500page.php" responseMode="ExecuteURL" />
+        </httpErrors>
+        <staticContent>
+            <mimeMap fileExtension=".json" mimeType="application/json" />
+        </staticContent>
+
+        <rewrite>
+            <rules>
+                <rule name="Rewrite to index.php">
+                    <match url="index.php|robots.txt|images|test.php" />
+                    <action type="None" />
+                </rule>
+                <rule name="Rewrite CI Index">
+                    <match url=".*" />
+                    <conditions>
+                        <add input="{REQUEST_FILENAME}" pattern="css|js|jpg|jpeg|png|gif|ico|htm|html" negate="true" />
+                    </conditions>
+                    <action type="Rewrite" url="index.php/{R:0}" />
+                </rule>
+            </rules>
+        </rewrite>
+
+    </system.webServer>
+</configuration>
