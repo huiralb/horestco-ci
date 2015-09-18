@@ -64,6 +64,25 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+// Load Eloquent
+use \Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule;
+
+$capsule->addConnection(array(
+    'driver'    => $db['default']['dbdriver'],
+    'host'      => $db['default']['hostname'],
+    'database'  => $db['default']['database'],
+    'username'  => $db['default']['username'],
+    'password'  => $db['default']['password'],
+    'charset'   => $db['default']['char_set'],
+    'collation' => $db['default']['dbcollat'],
+    'prefix'    => $db['default']['dbprefix']
+));
+
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
