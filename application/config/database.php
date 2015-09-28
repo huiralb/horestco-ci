@@ -48,10 +48,12 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '110.4.46.101';
-$db['default']['username'] = 'horestco';
-$db['default']['password'] = 'horestco@123';
-$db['default']['database'] = 'horestco';
+$setting = parse_ini_file("setting.ini.php");
+
+$db['default']['hostname'] = $setting['host'];
+$db['default']['username'] = $setting['user'];
+$db['default']['password'] = $setting['password'];
+$db['default']['database'] = $setting['dbname'];
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
