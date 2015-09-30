@@ -1,20 +1,28 @@
 <?php
+@include_once(APPPATH . 'core/Front_Controller.php');
+
 /**
 * 
 */
-class Catalog extends CI_Controller
+class Catalog extends Front_Controller
 {
-	
-	function index()
+	private $products;
+
+	function __construct() {
+		parent::__construct();
+	}
+
+	public function index()
 	{
-		var_dump(Supplier::all()->toArray());
+		$data['products'] = Product::active()->get();
+		$this->load->view('catalog/home', $data);
 	}
 
 	public function detail($id)
 	{
-		$product = Product::where('productId', $id)->get()->toArray();
-		echo "<pre>";
-		var_dump($product);
-		echo "</pre>";
+		$product = Product::where('productId', $id)->first();
+		echo "<h1>";
+		echo $product->title;
+		echo "</h1>";
 	}
 }
