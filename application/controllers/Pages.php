@@ -1,5 +1,7 @@
 <?php
-class Pages extends CI_Controller {
+@include_once(APPPATH . 'core/Front_Controller.php');
+
+class Pages extends Front_Controller {
 
     public function statis($page = 'home')
     {
