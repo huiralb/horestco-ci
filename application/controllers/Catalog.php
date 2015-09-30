@@ -20,9 +20,7 @@ class Catalog extends Front_Controller
 
 	public function detail($id)
 	{
-		$product = Product::where('productId', $id)->first();
-		echo "<h1>";
-		echo $product->title;
-		echo "</h1>";
+		$data['product'] = Product::where('productId', $id)->first();
+		$this->load->view('catalog/detail', $data);
 	}
 }
