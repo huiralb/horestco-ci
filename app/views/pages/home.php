@@ -1,0 +1,2 @@
+<h1><?=$title?></h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil in praesentium, saepe assumenda aut molestias, repudiandae impedit aperiam labore, repellendus, ipsa voluptatem totam. Laboriosam, alias iusto? Placeat vitae, officia similique.</p>
