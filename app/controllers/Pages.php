@@ -1,7 +1,6 @@
 <?php
-@include_once(APPPATH . 'core/Front_Controller.php');
 
-class Pages extends Front_Controller {
+class Pages extends HRC_Controller {
 
     public function statis($page = 'home')
     {

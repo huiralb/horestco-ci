@@ -9,4 +9,9 @@ class Front_Controller extends HRC_Controller
 	{
 		parent::__construct();
 	}
+
+	public function FunctionName($value='')
+	{
+		# code...
+	}
 }

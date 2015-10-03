@@ -3,17 +3,10 @@ use \Illuminate\Database\Eloquent\Model;
 
 class Product extends Model{
 
-    protected $table = 'product';
+    protected $table = 'hrc_products';
 
-	protected $primaryKey = 'productId';
-
-	public function scopeActive($query)
+	public function scopeEnabled($query)
 	{
-		return $query->where('status', 'A');
-	}
-
-	public function scopeInactive($query)
-	{
-		return $query->where('status', 'I');
+		return $query->where('is_enabled', 1);
 	}
 }

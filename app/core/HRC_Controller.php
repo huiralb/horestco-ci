@@ -9,4 +9,9 @@ class HRC_Controller extends CI_Controller
 	{
 		parent::__construct();
 	}
+
+	public function isEnabled($value = 1)
+	{
+		return $value == 1 ? true : false;
+	}
 }

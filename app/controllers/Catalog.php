@@ -1,10 +1,8 @@
 <?php
-@include_once(APPPATH . 'core/Front_Controller.php');
-
 /**
 * 
 */
-class Catalog extends Front_Controller
+class Catalog extends HRC_Controller
 {
 	private $products;
 
@@ -12,15 +10,16 @@ class Catalog extends Front_Controller
 		parent::__construct();
 	}
 
+	// show all product
 	public function index()
 	{
-		$data['products'] = Product::active()->get();
-		$this->load->view('catalog/home', $data);
+		$data['products'] = Product::enabled()->get();
+		$this->load->view('catalog/products', $data);
 	}
 
 	public function detail($id)
 	{
-		$data['product'] = Product::where('productId', $id)->first();
+		$data['product'] = Product::where('slug', $id)->first();
 		$this->load->view('catalog/detail', $data);
 	}
 }
