@@ -48,7 +48,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$setting = parse_ini_file("setting.ini.php");
+$setting = parse_ini_file(BASEDIR . "setting.ini.php");
 
 $db['default']['hostname'] = $setting['host'];
 $db['default']['username'] = $setting['user'];
