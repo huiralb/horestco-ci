@@ -181,7 +181,7 @@ switch (ENVIRONMENT)
 	// Name of the "system folder"
 	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
 
-	// Base Directory
+	// path to the project directory
 	define('BASEDIR', dirname(__FILE__) . '/');
 	
 
@@ -207,7 +207,7 @@ switch (ENVIRONMENT)
  * --------------------------------------------------------------------
  */
 
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 /*
  * --------------------------------------------------------------------
