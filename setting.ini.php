@@ -2,6 +2,6 @@
 [SQL]
 
 host = localhost
-user = root
+username = root
 password = 
-dbname = horestco
+database = horestco

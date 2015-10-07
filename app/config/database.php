@@ -48,12 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$setting = parse_ini_file(BASEDIR . "setting.ini.php");
-
-$db['default']['hostname'] = $setting['host'];
-$db['default']['username'] = $setting['user'];
-$db['default']['password'] = $setting['password'];
-$db['default']['database'] = $setting['dbname'];
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'username';
+$db['default']['password'] = 'password';
+$db['default']['database'] = 'database';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -66,24 +64,7 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
-// Load Eloquent
-use \Illuminate\Database\Capsule\Manager as Capsule;
 
-$capsule = new Capsule;
-
-$capsule->addConnection(array(
-    'driver'    => $db['default']['dbdriver'],
-    'host'      => $db['default']['hostname'],
-    'database'  => $db['default']['database'],
-    'username'  => $db['default']['username'],
-    'password'  => $db['default']['password'],
-    'charset'   => $db['default']['char_set'],
-    'collation' => $db['default']['dbcollat'],
-    'prefix'    => $db['default']['dbprefix']
-));
-
-$capsule->setAsGlobal();
-$capsule->bootEloquent();
 
 
 /* End of file database.php */
