@@ -8,6 +8,7 @@ class Catalog extends HRC_Controller
 
 	function __construct() {
 		parent::__construct();
+		ini_set("display_errors", 1);
 	}
 
 	// show all product
