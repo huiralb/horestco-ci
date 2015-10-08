@@ -5,16 +5,17 @@
 class Catalog extends HRC_Controller
 {
 	private $products;
+	protected $image;
 
 	function __construct() {
 		parent::__construct();
-		ini_set("display_errors", 1);
+		$this->load->helper('Image');
 	}
 
 	// show all product
 	public function index()
 	{
-		$data['products'] = Product::enabled()->get();
+		$data['products'] = parent::fetchProduct();
 		$this->load->view('catalog/products', $data);
 	}
 

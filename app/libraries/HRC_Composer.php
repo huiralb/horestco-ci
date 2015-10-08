@@ -6,7 +6,7 @@ class HRC_Composer
 
 	public function __construct()
 	{
-        include('./vendor/autoload.php');
+        include(APPPATH . 'vendor/autoload.php');
 	}
 
 }

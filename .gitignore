@@ -10,4 +10,5 @@ application/logs/*
 
 vendor/
 user_guide/
-setting.ini.php
+app/storage/
+
