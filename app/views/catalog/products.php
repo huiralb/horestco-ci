@@ -9,7 +9,6 @@ if ( count($products) > 0 ):
 	<?php
 		if ( count($product->images) > 0 ):
 			foreach($product->images as $image){
-				echo "<p>". $image->name ."</p>";
 				imageThumb(250, $image->name);
 			}
 	?>
