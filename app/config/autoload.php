@@ -64,7 +64,7 @@ $autoload['libraries'] = array('HRC_Composer', 'HRC_Database');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'file');
+$autoload['helper'] = array('url', 'file', 'html');
 
 
 /*
