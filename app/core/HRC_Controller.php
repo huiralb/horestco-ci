@@ -17,12 +17,19 @@ class HRC_Controller extends CI_Controller
 		return $value == 1 ? true : false;
 	}
 
-	public function fetchProduct()
+	public function catalogs()
 	{
-		$products = \Product::enabled()
-								->with(array(
-									'images'
-								))->get();
-		return $products;								
+		return \Product::enabled()->with(array('images'))->get();
+	}
+
+	public function catalog($slug)
+	{
+		return \Product::where('slug', $slug)->enabled()
+						->with(array(
+							'images' => function($query){
+								$query->sort();
+							}
+						))
+						->first();
 	}
 }

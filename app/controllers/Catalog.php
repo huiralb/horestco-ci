@@ -15,13 +15,15 @@ class Catalog extends HRC_Controller
 	// show all product
 	public function index()
 	{
-		$data['products'] = parent::fetchProduct();
+		$data['products'] = parent::catalogs();
+
 		$this->load->view('catalog/products', $data);
 	}
 
-	public function detail($id)
+	public function detail($slug)
 	{
-		$data['product'] = Product::where('slug', $id)->first();
+		$data['product'] = parent::catalog($slug);
+
 		$this->load->view('catalog/detail', $data);
 	}
 }

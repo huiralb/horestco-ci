@@ -13,8 +13,6 @@ class Pages extends HRC_Controller {
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
 
-        var_dump(Supplier::all()->toArray());
-
         $this->load->view('pages/'.$page, $data);
 
         // $this->load->view('partials/header', $data);

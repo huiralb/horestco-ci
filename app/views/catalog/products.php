@@ -1,4 +1,11 @@
+<html>
+	<head>
+		<title>title</title>
+	</head>
+	body
+</html>
 <?php 
+
 if ( count($products) > 0 ):
 	foreach ($products as $key => $product):
 	?>
@@ -8,8 +15,8 @@ if ( count($products) > 0 ):
 	<p><?= $product->dimension?></p>
 	<?php
 		if ( count($product->images) > 0 ):
-			foreach($product->images as $image){
-				imageThumb(250, $image->name);
+			foreach($product->images as $key => $image){
+				if($image->sort_order == 1) imageThumb($image->id, 250, 188);
 			}
 	?>
 

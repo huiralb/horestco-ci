@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-function imageThumb($width, $file)
+function imageThumb($id, $width, $height)
 {
 	$CI =& get_instance();
 	$CI->load->library('HRC_Image');
-	$image = new HRC_Image($width, $file);
-	$image->display();
+	$image = new HRC_Image($id, $width, $height);
+	return $image->display();
 }
 
 
